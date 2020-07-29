@@ -1,0 +1,404 @@
+<!DOCTYPE html>
+<html lang="ru">
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <title>freelance bot</title>
+    <meta name="theme-color" content="#fff" />
+    <meta
+      name="apple-mobile-web-app-status-bar-style"
+      content="black-translucent"
+    />
+    <meta
+      name="viewport"
+      content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0"
+    />
+    <link
+      rel="shortcut icon"
+      href="img/favicons/favicon.ico"
+      type="image/x-icon"
+    />
+    <link
+      rel="icon"
+      sizes="16x16"
+      href="img/favicons/favicon-16x16.png"
+      type="image/png"
+    />
+    <link
+      rel="icon"
+      sizes="32x32"
+      href="img/favicons/favicon-32x32.png"
+      type="image/png"
+    />
+    <link
+      rel="apple-touch-icon-precomposed"
+      href="img/favicons/apple-touch-icon-precomposed.png"
+    />
+    <link rel="apple-touch-icon" href="img/favicons/apple-touch-icon.png" />
+    <link
+      rel="apple-touch-icon"
+      sizes="57x57"
+      href="img/favicons/apple-touch-icon-57x57.png"
+    />
+    <link
+      rel="apple-touch-icon"
+      sizes="60x60"
+      href="img/favicons/apple-touch-icon-60x60.png"
+    />
+    <link
+      rel="apple-touch-icon"
+      sizes="72x72"
+      href="img/favicons/apple-touch-icon-72x72.png"
+    />
+    <link
+      rel="apple-touch-icon"
+      sizes="76x76"
+      href="img/favicons/apple-touch-icon-76x76.png"
+    />
+    <link
+      rel="apple-touch-icon"
+      sizes="114x114"
+      href="img/favicons/apple-touch-icon-114x114.png"
+    />
+    <link
+      rel="apple-touch-icon"
+      sizes="120x120"
+      href="img/favicons/apple-touch-icon-120x120.png"
+    />
+    <link
+      rel="apple-touch-icon"
+      sizes="144x144"
+      href="img/favicons/apple-touch-icon-144x144.png"
+    />
+    <link
+      rel="apple-touch-icon"
+      sizes="152x152"
+      href="img/favicons/apple-touch-icon-152x152.png"
+    />
+    <link
+      rel="apple-touch-icon"
+      sizes="167x167"
+      href="img/favicons/apple-touch-icon-167x167.png"
+    />
+    <link
+      rel="apple-touch-icon"
+      sizes="180x180"
+      href="img/favicons/apple-touch-icon-180x180.png"
+    />
+    <link
+      rel="apple-touch-icon"
+      sizes="1024x1024"
+      href="img/favicons/apple-touch-icon-1024x1024.png"
+    />
+    <link rel="stylesheet" href="styles/main.min.css" />
+  </head>
+  <body>
+    <div class="body-container">
+      <div class="burger-overflow"></div>
+<header class="header">
+  <div class="container header__container">
+    <a href="./" class="header__logo">
+      <img
+        src="img/static/logo.svg"
+        width="223px"
+        height="48px"
+        alt="FreelanceBot"
+      />
+    </a>
+    <div class="header__burger-menu">
+      <nav class="header__nav">
+        <a href="#useful" class="link-hover header__nav-item scrollFrom-useful">
+          Что это?
+        </a>
+        <a
+          href="#suitable"
+          class="link-hover header__nav-item scrollFrom-suitable"
+        >
+          Для кого?
+        </a>
+        <a href="#" class="link-hover header__nav-item">
+          Биржи
+        </a>
+        <a href="#" class="link-hover header__nav-item">
+          Преимущества
+        </a>
+        <a href="#tarif" class="link-hover header__nav-item scrollFrom-tarif">
+          Тарифы
+        </a>
+        <a
+          href="login.html"
+          class="site-button header__button site-button header__button--mobile"
+        >
+          Войти
+        </a>
+      </nav>
+    </div>
+    <a href="signup.html" class="site-button header__button">
+      Попробовать бесплатно
+    </a>
+    <button class="header__burger-btn">
+      <span></span>
+      <span></span>
+      <span></span>
+    </button>
+  </div>
+</header>
+
+      <main class="body-container__main">
+        <section class="container">
+          <div class="bread-crumbs">
+  <a href="#" class="bread-crumbs__link">
+    Главная<span></span>
+  </a>
+  <p class="bread-crumbs__this-page">
+    Личный кабинет
+  </p>
+</div>
+          <h1 class="section-title section-title--profile">
+            Личный кабинет
+          </h1>
+        </section>
+        <section class="container profile-page profile-page--tarif">
+          <div class="profile-page__sidebar">
+            <div class="profile-sidebar profile-card">
+              <div class="profile-sidebar__padding">
+                <img
+                  class="profile-sidebar__avatar"
+                  src="img/static/ava.svg"
+                  alt="user"
+                  width="100px"
+                  height="100px"
+                />
+                <p class="profile-sidebar__email">
+                  mamonty77@mail.ru
+                </p>
+                <div class="profile-sidebar__subs">
+                  <div class="profile-sidebar__subs-stat">
+                    <img src="img/static/check-icon.svg" alt="ok" />
+                  </div>
+                  <div class="profile-sidebar__subs-content">
+                    <p class="profile-sidebar__subs-title">
+                      START активен
+                    </p>
+                    <a
+                      href="#"
+                      class="link-hover link-hover--blue profile-sidebar__subs-link"
+                    >
+                      Продлить подписку
+                    </a>
+                  </div>
+                </div>
+              </div>
+              <ul class="profile-sidebar__menu">
+                <li>
+                  <a href="profile-bot.html" class="profile-sidebar__menu-item">
+                    Мой профиль
+                  </a>
+                </li>
+                <li>
+                  <a href="#" class="profile-sidebar__menu-item">
+                    Редактировать профиль
+                  </a>
+                </li>
+                <li>
+                  <a
+                    href="profile-tarif.html"
+                    class="profile-sidebar__menu-item profile-sidebar__menu-item--active"
+                  >
+                    Тарифы
+                  </a>
+                </li>
+                <li>
+                  <a href="#" class="profile-sidebar__menu-item">
+                    Изменить пароль
+                  </a>
+                </li>
+                <li>
+                  <a href="#" class="profile-sidebar__menu-item">
+                    Выход
+                  </a>
+                </li>
+              </ul>
+            </div>
+          </div>
+          <div class="profile-page__main">
+            <div class="profile-card profile-row-title">
+  <h2 class="profile-title">
+    Добро пожаловать в список тарифов Freelance Bot'a
+  </h2>
+  <p class="profile-desc">
+    Здесь вы можете приобрести подписку и посмотреть историю покупок
+  </p>
+</div>
+            <div class="profile-page__content">
+              <div class="profile-card profile-tarif">
+  <h2 class="profile-title">
+    Тарифы
+  </h2>
+  <p class="profile-desc">
+    Выберите тариф, соответствующий вашим потребностям
+  </p>
+  <div class="profile-tarif__card-list">
+    <ul class="tarif-card-list">
+  <li class="tarif-card-list__item">
+    <h3 class="tarif-card-list__title">
+      Start
+      <div class="tarif-card-list__circle"></div>
+    </h3>
+    <div class="tarif-card-list__content">
+      <div class="tarif-card-list__price-box">
+        <p class="tarif-card-list__price-discount">
+          599 ₽
+        </p>
+        <p class="tarif-card-list__price">
+          290 ₽
+        </p>
+      </div>
+      <ul class="tarif-card-list__benefits-list">
+        <li class="tarif-card-list__benefits">
+          Лента проектов
+        </li>
+        <li class="tarif-card-list__benefits">
+          Краткое содержание
+        </li>
+        <li class="tarif-card-list__benefits">
+          Ссылка на источник
+        </li>
+      </ul>
+      <a
+        href="signup.html"
+        class="site-button site-button--yellow tarif-card-list__button"
+      >
+        Выбрать тариф
+      </a>
+    </div>
+  </li>
+  <li class="tarif-card-list__item">
+    <h3 class="tarif-card-list__title">
+      Pro
+      <div class="tarif-card-list__circle"></div>
+    </h3>
+    <div class="tarif-card-list__content">
+      <div class="tarif-card-list__price-box">
+        <p class="tarif-card-list__price">
+          5990 ₽
+        </p>
+      </div>
+      <ul class="tarif-card-list__benefits-list">
+        <li class="tarif-card-list__benefits">
+          Фильтрация по цене
+        </li>
+        <li class="tarif-card-list__benefits">
+          Настройка тем
+        </li>
+        <li class="tarif-card-list__benefits">
+          Предпросмотр заказа
+        </li>
+      </ul>
+      <a
+        href="signup.html"
+        class="site-button site-button--yellow tarif-card-list__button"
+      >
+        Выбрать тариф
+      </a>
+    </div>
+  </li>
+</ul>
+
+  </div>
+</div>
+              <div class="profile-card profile-history">
+  <h2 class="profile-title">
+    История покупок
+  </h2>
+  <p class="profile-desc">
+    Вся информация о платных подписках
+  </p>
+  <ul class="profile-history__list">
+    <li class="profile-history__item">
+      <p class="profile-history__price">
+        PRO - 5990 ₽
+      </p>
+      <p class="profile-history__date">
+        12.06.2020
+      </p>
+    </li>
+    <li class="profile-history__item">
+      <p class="profile-history__price">
+        PRO - 5990 ₽
+      </p>
+      <p class="profile-history__date">
+        12.06.2020
+      </p>
+    </li>
+    <li class="profile-history__item">
+      <p class="profile-history__price">
+        PRO - 5990 ₽
+      </p>
+      <p class="profile-history__date">
+        12.06.2020
+      </p>
+    </li>
+  </ul>
+</div>
+
+            </div>
+          </div>
+        </section>
+      </main>
+      <footer class="footer">
+  <div class="footer__line"></div>
+  <div class="container footer__logo-container">
+    <a href="./" class="footer__logo">
+      <img src="img/static/logo-w.svg" alt="FreelanceBot" />
+    </a>
+  </div>
+  <div class="container footer__container">
+    <nav class="footer__nav">
+      <p class="footer__title">
+        Разделы сайта
+      </p>
+      <a
+        href="#useful"
+        class="link-hover footer__item scrollFrom-useful--footer"
+      >
+        Что такое фриланс бот?
+      </a>
+      <a
+        href="#suitable"
+        class="link-hover footer__item scrollFrom-suitable--footer"
+      >
+        Для кого он подойдет?
+      </a>
+      <a href="#" class="link-hover footer__item">
+        Поддерживаемые биржи
+      </a>
+      <a href="#" class="link-hover footer__item">
+        Преимущества
+      </a>
+      <a href="#tarif" class="link-hover footer__item scrollFrom-tarif--footer">
+        Тарифы
+      </a>
+    </nav>
+    <p class="footer__and">
+      &
+    </p>
+    <div class="footer__contact">
+      <p class="footer__title">
+        Свяжитесь с нами
+      </p>
+      <a href="#" class="link-hover footer__item">
+        info@ikon.love
+      </a>
+      <a href="#" class="link-hover footer__item">
+        (+41) 76 586 12 56
+      </a>
+    </div>
+  </div>
+</footer>
+
+    </div>
+    <script src="js/main.min.js"></script>
+    <script src="js/vendor.min.js"></script>
+  </body>
+</html>
