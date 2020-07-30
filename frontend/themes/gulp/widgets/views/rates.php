@@ -24,7 +24,7 @@ use yii\helpers\Url;
             <div class="tarif-card-list__price-box">
                 <?php if ($model->price_old):?>
                   <p class="tarif-card-list__price-discount">
-                      <?= (int) $model->price ?> ₽
+                      <?= (int) $model->price_old ?> ₽
                   </p>
                 <?php endif; ?>
 

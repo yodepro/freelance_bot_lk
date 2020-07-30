@@ -7,6 +7,7 @@ namespace frontend\controllers;
 use common\models\PaymentOrder;
 use common\models\PaymentRate;
 use common\models\User;
+use frontend\models\ProfileForm;
 use Yii;
 use yii\filters\AccessControl;
 use yii\web\Controller;
@@ -47,8 +48,19 @@ class LkController extends Controller
 
     public function actionUpdate()
     {
+        /**
+         * @var $profile User
+         */
         $profile = Yii::$app->user->identity;
-        return $this->render('update',['profile' => $profile]);
+        $form = new ProfileForm($profile);
+
+        if($form->load(Yii::$app->request->post()) && $form->validate()){
+            $profile->load($form->attributes,'');
+            $profile->save();
+            Yii::$app->session->setFlash('success', []);
+        }
+
+        return $this->render('update',['profile' => $profile, 'form' => $form]);
     }
 
     public function actionPassword()
