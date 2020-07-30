@@ -1,4 +1,7 @@
 <?php
+
+use frontend\themes\gulp\Theme;
+
 $params = array_merge(
     require __DIR__ . '/../../common/config/params.php',
     require __DIR__ . '/../../common/config/params-local.php',
@@ -14,14 +17,21 @@ return [
     'bootstrap' => ['log'],
     'controllerNamespace' => 'frontend\controllers',
     'components' => [
+        'unitpay' => [
+            'class' => \common\components\payment\Unitpay::class,
+            'secretKey' => $params['up']['secretKey'],
+            'publicId' => $params['up']['publicId'],
+            'domain' => $params['up']['domain'],
+            'verificationCode' => 'test'
+        ],
         'view' => [
             'theme' => [
-                'class' => \frontend\themes\gulp\Theme::class,
+                'class' => Theme::class,
                 'basePath' => '@app/build',
                 'baseUrl' => '@web/build',
-/*                'pathMap' => [
-                    '@app/views' => '@app/themes/gulp',
-                ],*/
+                /*                'pathMap' => [
+                                    '@app/views' => '@app/themes/gulp',
+                                ],*/
             ],
         ],
         'request' => [
@@ -56,6 +66,9 @@ return [
                 '<action>' => 'site/<action>',
             ],
         ],
+        'formatter' => [
+            'locale' => 'ru'
+        ]
     ],
     'params' => $params,
 ];

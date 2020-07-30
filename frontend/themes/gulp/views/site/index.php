@@ -7,6 +7,7 @@ use yii\helpers\Url;
 $theme = $this->theme;
 $this->title = Yii::$app->name;
 ?>
+
 <main class="body-container__main main-page">
   <section class="intro">
     <div class="container">
@@ -139,75 +140,9 @@ $this->title = Yii::$app->name;
       <p class="section-desc tarif__desc">
         Регистрируйтесь сейчас и получите день бесплатного доступа
       </p>
-      <div class="tarif__card-list">
-        <ul class="tarif-card-list">
-          <li class="tarif-card-list__item">
-            <h3 class="tarif-card-list__title">
-              Start
-              <div class="tarif-card-list__circle"></div>
-            </h3>
-            <div class="tarif-card-list__content">
-              <div class="tarif-card-list__price-box">
-                <p class="tarif-card-list__price-discount">
-                  599 ₽
-                </p>
-                <p class="tarif-card-list__price">
-                  290 ₽
-                </p>
-              </div>
-              <ul class="tarif-card-list__benefits-list">
-                <li class="tarif-card-list__benefits">
-                  Лента проектов
-                </li>
-                <li class="tarif-card-list__benefits">
-                  Краткое содержание
-                </li>
-                <li class="tarif-card-list__benefits">
-                  Ссылка на источник
-                </li>
-              </ul>
-              <a
-                  class="site-button site-button--yellow tarif-card-list__button"
-                  href="<?= Url::toRoute(['site/signup']) ?>"
-              >
-                Выбрать тариф
-              </a>
-            </div>
-          </li>
-          <li class="tarif-card-list__item">
-            <h3 class="tarif-card-list__title">
-              Pro
-              <div class="tarif-card-list__circle"></div>
-            </h3>
-            <div class="tarif-card-list__content">
-              <div class="tarif-card-list__price-box">
-                <p class="tarif-card-list__price">
-                  5990 ₽
-                </p>
-              </div>
-              <ul class="tarif-card-list__benefits-list">
-                <li class="tarif-card-list__benefits">
-                  Фильтрация по цене
-                </li>
-                <li class="tarif-card-list__benefits">
-                  Настройка тем
-                </li>
-                <li class="tarif-card-list__benefits">
-                  Предпросмотр заказа
-                </li>
-              </ul>
-              <a
-                  class="site-button site-button--yellow tarif-card-list__button"
-                  href="<?= Url::toRoute(['site/signup']) ?>"
-              >
-                Выбрать тариф
-              </a>
-            </div>
-          </li>
-        </ul>
-
-      </div>
+        <?=\frontend\widgets\Rates::widget(); ?>
     </div>
   </section>
+
 
 </main>

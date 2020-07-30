@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "50114089d7de41b6fbcc4d646295169a",
+    "content-hash": "29651c4c44aead22d01601951aa0c027",
     "packages": [
         {
             "name": "bower-asset/bootstrap",
@@ -62,6 +62,25 @@
                 "type": "zip",
                 "url": "https://api.github.com/repos/jquery/jquery-dist/zipball/4c0e4becb8263bb5b3e6dadc448d8e7305ef8215",
                 "reference": "4c0e4becb8263bb5b3e6dadc448d8e7305ef8215",
+                "shasum": null
+            },
+            "type": "bower-asset",
+            "license": [
+                "MIT"
+            ]
+        },
+        {
+            "name": "bower-asset/noty",
+            "version": "v3.1.4",
+            "source": {
+                "type": "git",
+                "url": "git@github.com:needim/noty.git",
+                "reference": "77268c46b6db6a1eb7a920ed7c859fbc8de17993"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/needim/noty/zipball/77268c46b6db6a1eb7a920ed7c859fbc8de17993",
+                "reference": "77268c46b6db6a1eb7a920ed7c859fbc8de17993",
                 "shasum": null
             },
             "type": "bower-asset",
@@ -336,6 +355,65 @@
                 "html"
             ],
             "time": "2020-06-29T00:56:53+00:00"
+        },
+        {
+            "name": "loveorigami/yii2-notification-wrapper",
+            "version": "6.7.2",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/loveorigami/yii2-notification-wrapper.git",
+                "reference": "544c5a34b33799e0f0f0882e1163273bd12728e0"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/loveorigami/yii2-notification-wrapper/zipball/544c5a34b33799e0f0f0882e1163273bd12728e0",
+                "reference": "544c5a34b33799e0f0f0882e1163273bd12728e0",
+                "shasum": ""
+            },
+            "require": {
+                "yiisoft/yii2": "~2"
+            },
+            "type": "yii2-extension",
+            "extra": {
+                "bootstrap": "lo\\modules\\noty\\Bootstrap"
+            },
+            "autoload": {
+                "psr-4": {
+                    "lo\\modules\\noty\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Andrey Lukyanov",
+                    "email": "loveorigami@mail.ru",
+                    "homepage": "http://loveorigami.info",
+                    "role": "Developer"
+                }
+            ],
+            "description": "This module for renders a message from session flash (with ajax, pjax support and etc.)",
+            "homepage": "https://github.com/loveorigami/yii2-notification-wrapper",
+            "keywords": [
+                "alert",
+                "flash",
+                "growl",
+                "lobibox",
+                "module",
+                "notific8",
+                "notification",
+                "noty",
+                "notyfy",
+                "notyjs",
+                "pnotyfy",
+                "sweetalert",
+                "toast",
+                "toastr",
+                "yii2"
+            ],
+            "time": "2016-03-31T00:00:00+00:00"
         },
         {
             "name": "paragonie/random_compat",
@@ -829,6 +907,49 @@
                 "shim"
             ],
             "time": "2020-07-14T12:35:20+00:00"
+        },
+        {
+            "name": "unitpay/php-sdk",
+            "version": "2.0.1",
+            "source": {
+                "type": "git",
+                "url": "git@github.com:unitpay/php-sdk.git",
+                "reference": "9e44b97273ef871b7f4ee86fc4f7a81ec145d901"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/unitpay/php-sdk/zipball/9e44b97273ef871b7f4ee86fc4f7a81ec145d901",
+                "reference": "9e44b97273ef871b7f4ee86fc4f7a81ec145d901",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=5.3.0"
+            },
+            "type": "library",
+            "autoload": {
+                "classmap": [
+                    "./UnitPay.php"
+                ]
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "unitpay",
+                    "email": "office@unitpay.ru",
+                    "homepage": "https://unitpay.ru",
+                    "role": "Developer"
+                }
+            ],
+            "description": "PHP SDK for UnitPay",
+            "homepage": "https://github.com/unitpay/php-sdk",
+            "keywords": [
+                "pay",
+                "unitpay"
+            ],
+            "time": "2020-03-03T05:51:53+00:00"
         },
         {
             "name": "yiisoft/yii2",
@@ -4569,7 +4690,7 @@
     "prefer-stable": false,
     "prefer-lowest": false,
     "platform": {
-        "php": ">=5.6.0"
+        "php": ">=7.2.0"
     },
     "platform-dev": []
 }

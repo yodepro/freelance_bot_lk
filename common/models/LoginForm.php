@@ -1,4 +1,5 @@
 <?php
+
 namespace common\models;
 
 use Yii;
@@ -26,7 +27,7 @@ class LoginForm extends Model
             [['email', 'password'], 'required'],
             // rememberMe must be a boolean value
             ['rememberMe', 'boolean'],
-            ['rememberMe', 'default','value' => true],
+            ['rememberMe', 'default', 'value' => true],
 
             // password is validated by validatePassword()
             ['password', 'validatePassword'],
@@ -52,20 +53,6 @@ class LoginForm extends Model
     }
 
     /**
-     * Logs in a user using the provided username and password.
-     *
-     * @return bool whether the user is logged in successfully
-     */
-    public function login()
-    {
-        if ($this->validate()) {
-            return Yii::$app->user->login($this->getUser(), $this->rememberMe ? 3600 * 24 * 30 : 0);
-        }
-
-        return false;
-    }
-
-    /**
      * Finds user by [[username]]
      *
      * @return User|null
@@ -77,5 +64,19 @@ class LoginForm extends Model
         }
 
         return $this->_user;
+    }
+
+    /**
+     * Logs in a user using the provided username and password.
+     *
+     * @return bool whether the user is logged in successfully
+     */
+    public function login()
+    {
+        if ($this->validate()) {
+            return Yii::$app->user->login($this->getUser(), $this->rememberMe ? 3600 * 24 * 30 : 0);
+        }
+
+        return false;
     }
 }

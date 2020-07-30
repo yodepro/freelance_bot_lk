@@ -1,9 +1,11 @@
 <?php
+
 namespace common\models;
 
 use Yii;
 use yii\base\NotSupportedException;
 use yii\behaviors\TimestampBehavior;
+use yii\db\ActiveQuery;
 use yii\db\ActiveRecord;
 use yii\web\IdentityInterface;
 
@@ -22,7 +24,9 @@ use yii\web\IdentityInterface;
  * @property integer $last_pay_at
  * @property integer $active_to
  * @property string $tg_id
+ * @property integer $pay_notice_sent_at
  * @property string $password write-only password
+ * @property PaymentOrder[] $payments
  */
 class User extends ActiveRecord implements IdentityInterface
 {
@@ -37,29 +41,6 @@ class User extends ActiveRecord implements IdentityInterface
     public static function tableName()
     {
         return '{{%user}}';
-    }
-
-    /**
-     * {@inheritdoc}
-     */
-    public function behaviors()
-    {
-        return [
-            TimestampBehavior::class,
-        ];
-    }
-
-    /**
-     * {@inheritdoc}
-     */
-    public function rules()
-    {
-        return [
-            ['status', 'default', 'value' => self::STATUS_INACTIVE],
-            ['status', 'in', 'range' => [self::STATUS_ACTIVE, self::STATUS_INACTIVE, self::STATUS_DELETED]],
-
-
-        ];
     }
 
     /**
@@ -101,23 +82,12 @@ class User extends ActiveRecord implements IdentityInterface
             return null;
         }
 
-        return static::findOne([
-            'password_reset_token' => $token,
-            'status' => self::STATUS_ACTIVE,
-        ]);
-    }
-
-    /**
-     * Finds user by verification email token
-     *
-     * @param string $token verify email token
-     * @return static|null
-     */
-    public static function findByVerificationToken($token) {
-        return static::findOne([
-            'verification_token' => $token,
-            'status' => self::STATUS_INACTIVE
-        ]);
+        return static::findOne(
+            [
+                'password_reset_token' => $token,
+                'status' => self::STATUS_ACTIVE,
+            ]
+        );
     }
 
     /**
@@ -132,9 +102,48 @@ class User extends ActiveRecord implements IdentityInterface
             return false;
         }
 
-        $timestamp = (int) substr($token, strrpos($token, '_') + 1);
+        $timestamp = (int)substr($token, strrpos($token, '_') + 1);
         $expire = Yii::$app->params['user.passwordResetTokenExpire'];
         return $timestamp + $expire >= time();
+    }
+
+    /**
+     * Finds user by verification email token
+     *
+     * @param string $token verify email token
+     * @return static|null
+     */
+    public static function findByVerificationToken($token)
+    {
+        return static::findOne(
+            [
+                'verification_token' => $token,
+                'status' => self::STATUS_INACTIVE
+            ]
+        );
+    }
+
+    /**
+     * {@inheritdoc}
+     */
+    public function behaviors()
+    {
+        return [
+            TimestampBehavior::class,
+        ];
+    }
+
+    /**
+     * {@inheritdoc}
+     */
+    public function rules()
+    {
+        return [
+            ['status', 'default', 'value' => self::STATUS_INACTIVE],
+            ['status', 'in', 'range' => [self::STATUS_ACTIVE, self::STATUS_INACTIVE, self::STATUS_DELETED]],
+
+
+        ];
     }
 
     /**
@@ -148,17 +157,17 @@ class User extends ActiveRecord implements IdentityInterface
     /**
      * {@inheritdoc}
      */
-    public function getAuthKey()
+    public function validateAuthKey($authKey)
     {
-        return $this->auth_key;
+        return $this->getAuthKey() === $authKey;
     }
 
     /**
      * {@inheritdoc}
      */
-    public function validateAuthKey($authKey)
+    public function getAuthKey()
     {
-        return $this->getAuthKey() === $authKey;
+        return $this->auth_key;
     }
 
     /**
@@ -209,8 +218,29 @@ class User extends ActiveRecord implements IdentityInterface
     /**
      * Removes password reset token
      */
-    public function removePasswordResetToken()
+    public function removePasswordResetToken(): void
     {
         $this->password_reset_token = null;
+    }
+
+    public function getPayments() : ActiveQuery
+    {
+        return $this->hasMany(PaymentOrder::class, ['user_id' => 'id']);
+    }
+
+    public function setPayment(PaymentOrder $order): void
+    {
+        $this->last_pay_at = time();
+        $this->pay_notice_sent_at = null;
+        $this->calculateActive($order->rate);
+    }
+
+    protected function calculateActive(PaymentRate $rate): void
+    {
+        if($this->active_to > time()){
+            $this->active_to += $rate->duration;
+        }else{
+            $this->active_to = time() + $rate->duration;
+        }
     }
 }

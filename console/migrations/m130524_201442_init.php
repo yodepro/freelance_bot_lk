@@ -24,6 +24,7 @@ class m130524_201442_init extends Migration
             'last_pay_at' => $this->integer()->null(),
             'active_to' => $this->integer()->null(),
             'tg_id' => $this->string(64)->null(),
+            'pay_notice_sent_at' => $this->integer()->null(),
         ], $tableOptions);
     }
 

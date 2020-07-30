@@ -5,4 +5,10 @@ return [
     'senderEmail' => 'noreply@example.com',
     'senderName' => 'Example.com mailer',
     'user.passwordResetTokenExpire' => 3600,
+    'frontendHostInfo' => 'https://fl-bot.ru',
+    'up' => [
+        'secretKey' => '',
+        'publicId' => '',
+        'domain' => 'unitpay.ru'
+    ]
 ];
