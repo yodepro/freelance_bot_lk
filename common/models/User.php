@@ -2,9 +2,11 @@
 
 namespace common\models;
 
+use Ramsey\Uuid\Uuid;
 use Yii;
 use yii\base\NotSupportedException;
 use yii\behaviors\TimestampBehavior;
+use yii\bootstrap\Html;
 use yii\db\ActiveQuery;
 use yii\db\ActiveRecord;
 use yii\web\IdentityInterface;
@@ -13,6 +15,7 @@ use yii\web\IdentityInterface;
  * User model
  *
  * @property integer $id
+ * @property string $user_uuid
  * @property string $password_hash
  * @property string $password_reset_token
  * @property string $verification_token
@@ -141,7 +144,8 @@ class User extends ActiveRecord implements IdentityInterface
         return [
             ['status', 'default', 'value' => self::STATUS_INACTIVE],
             ['status', 'in', 'range' => [self::STATUS_ACTIVE, self::STATUS_INACTIVE, self::STATUS_DELETED]],
-            ['active_to','default','value' => time() + 60*60*24*3]
+            ['active_to','default','value' => time() + 60*60*24*3],
+            ['user_uuid','default','value' => Uuid::uuid4()],
         ];
     }
 
@@ -252,5 +256,27 @@ class User extends ActiveRecord implements IdentityInterface
     {
         Yii::error([$this->active_to, time()]);
         return $this->active_to > time();
+    }
+
+    public function getTgLink()
+    {
+        if($this->tg_id){
+            return Html::a(
+                'Отключить',
+                ['lk/disconnect','b' => 'tg'],
+                [
+                    'class' => 'link-hover link-hover--blue profile-plug-bot__item-desc',
+                    'data-method' => 'post',
+                    'target' => '_blank'
+                ]);
+        }
+
+        return Html::a(
+            'Подключить',
+            'https://t.me/YodeFreelanceBot?id='.$this->user_uuid,
+            [
+                'class' => 'link-hover link-hover--blue profile-plug-bot__item-desc',
+                'target' => '_blank'
+            ]);
     }
 }

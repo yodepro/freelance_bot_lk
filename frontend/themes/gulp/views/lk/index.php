@@ -43,9 +43,7 @@ $this->title = 'Личный кабинет';
               <p class="profile-plug-bot__item-title">
                 Telegram
               </p>
-              <a class="link-hover link-hover--blue profile-plug-bot__item-desc" href="#">
-                Подключить
-              </a>
+              <?= $profile->getTgLink() ?>
             </div>
           </li>
           <li class="profile-plug-bot__item">

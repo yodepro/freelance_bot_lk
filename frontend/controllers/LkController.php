@@ -57,11 +57,34 @@ class LkController extends Controller
 
         if($form->load(Yii::$app->request->post()) && $form->validate()){
             $profile->email = $form->email;
-            $profile->save();
-            Yii::$app->session->setFlash('success', 'Данные успешно сохранены.');
+            if($profile->save()){
+                Yii::$app->session->setFlash('success', 'Данные успешно сохранены.');
+                return $this->redirect(['lk/index']);
+            }
+            Yii::$app->session->setFlash('error', 'Не удалось сохранить.');
+
         }
 
         return $this->render('update',['profile' => $profile, 'model' => $form]);
+    }
+
+    public function actionDisconnect($b = 'tg')
+    {
+        /**
+         * @var $profile User
+         */
+        $profile = Yii::$app->user->identity;
+
+        if(Yii::$app->request->isPost){
+            $profile->tg_id = null;
+            if($profile->save()){
+                Yii::$app->session->setFlash('success', 'Успешно отключено.');
+                return $this->redirect(['lk/index']);
+            }
+            Yii::$app->session->setFlash('success', 'Не удалось отключить.');
+        }
+
+        return $this->redirect(['lk/index']);
     }
 
     public function actionPassword()
@@ -74,8 +97,11 @@ class LkController extends Controller
 
         if($form->load(Yii::$app->request->post()) && $form->validate()){
             $profile->setPassword($form->password);
-            $profile->save();
-            Yii::$app->session->setFlash('error', 'Пароль успешно изменен.');
+            if($profile->save()){
+                Yii::$app->session->setFlash('success', 'Данные успешно сохранены.');
+                return $this->redirect(['lk/index']);
+            }
+            Yii::$app->session->setFlash('error', 'Не удалось сохранить.');
         }
 
         return $this->render('password',['profile' => $profile, 'model' => $form]);
