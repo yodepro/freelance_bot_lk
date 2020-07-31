@@ -17,6 +17,9 @@ return [
     'bootstrap' => ['log'],
     'controllerNamespace' => 'frontend\controllers',
     'components' => [
+        'assetManager' => [
+          'appendTimestamp' => true
+        ],
         'unitpay' => [
             'class' => \common\components\payment\Unitpay::class,
             'secretKey' => $params['up']['secretKey'],
