@@ -19,6 +19,7 @@ $this->beginPage() ?>
   <meta charset="<?= Yii::$app->charset ?>">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="theme-color" content="#fff"/>
+  <meta name="verification" content="ef46cc3a76521696159b7adb10f359" />
   <meta
       name="apple-mobile-web-app-status-bar-style"
       content="black-translucent"
