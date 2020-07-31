@@ -25,12 +25,7 @@ $this->params['breadcrumbs'][] = $this->title;
         ->label(false)?>
 
 
-        <div class="login__forgot-box">
-            <?= Html::a('Забыли пароль?', ['site/request-password-reset'], ['class' => 'link-hover link-hover--blue login__forgot']) ?>
-        </div>
-        <div class="login__forgot-box">
-            <?= Html::a('Подтвердить e-mail', ['site/resend-verification-email'], ['class' => 'link-hover link-hover--blue login__forgot']) ?>
-        </div>
+
 
         <?= Html::submitButton('Войти', ['class' => 'site-button login__button', 'name' => 'login-button']) ?>
 
