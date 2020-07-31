@@ -98,7 +98,7 @@ $this->title = Yii::$app->name;
               Выберите тариф
             </h3>
             <p class="how__item-desc">
-              И получите день доступа в подарок!
+              И получите 3 дня доступа в подарок!
             </p>
           </div>
           <div class="how__item-img">
