@@ -254,7 +254,6 @@ class User extends ActiveRecord implements IdentityInterface
 
     public function isActive()
     {
-        Yii::error([$this->active_to, time()]);
         return $this->active_to > time();
     }
 

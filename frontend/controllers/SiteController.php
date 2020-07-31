@@ -4,6 +4,7 @@ namespace frontend\controllers;
 use frontend\models\ResendVerificationEmailForm;
 use frontend\models\VerifyEmailForm;
 use Yii;
+use yii\base\Action;
 use yii\base\InvalidArgumentException;
 use yii\web\BadRequestHttpException;
 use yii\web\Controller;
@@ -27,8 +28,16 @@ class SiteController extends Controller
     {
         return [
             'access' => [
-                'class' => AccessControl::className(),
+                'class' => AccessControl::class,
                 'only' => ['logout', 'signup'],
+                'denyCallback' => function($rule, Action $action)
+                {
+                    if('site/signup' === $action->uniqueId){
+                        return $action->controller->redirect(['lk/index']);
+                    }
+                    return $action->controller->redirect(['site/login']);
+
+                },
                 'rules' => [
                     [
                         'actions' => ['signup'],
@@ -43,7 +52,7 @@ class SiteController extends Controller
                 ],
             ],
             'verbs' => [
-                'class' => VerbFilter::className(),
+                'class' => VerbFilter::class,
                 'actions' => [
                     'logout' => ['post'],
                 ],
