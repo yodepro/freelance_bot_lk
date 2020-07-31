@@ -141,8 +141,7 @@ class User extends ActiveRecord implements IdentityInterface
         return [
             ['status', 'default', 'value' => self::STATUS_INACTIVE],
             ['status', 'in', 'range' => [self::STATUS_ACTIVE, self::STATUS_INACTIVE, self::STATUS_DELETED]],
-
-
+            ['active_to','default','value' => time() + 60*60*24*3]
         ];
     }
 
@@ -242,5 +241,16 @@ class User extends ActiveRecord implements IdentityInterface
         }else{
             $this->active_to = time() + $rate->duration;
         }
+    }
+
+    public function getLastActiveDate() : \DateTime
+    {
+        return date_create_from_format('U', $this->active_to);
+    }
+
+    public function isActive()
+    {
+        Yii::error([$this->active_to, time()]);
+        return $this->active_to > time();
     }
 }

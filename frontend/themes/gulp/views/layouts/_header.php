@@ -32,8 +32,8 @@ $theme = $this->theme;
                       ['class' => 'link-hover header__nav-item scrollFrom-suitable'])
           ?>
           <?= Html::a('Биржи',
-                      ['site/index','#' => 'suitable'],
-                      ['class' => 'link-hover header__nav-item scrollFrom-how'])
+                      ['site/base'],
+                      ['class' => 'link-hover header__nav-item'])
           ?>
           <!-- Html::a('Преимущества',
                       ['site/index','#' => 'suitable'],
@@ -50,9 +50,16 @@ $theme = $this->theme;
           ?>
       </nav>
     </div>
-    <a class="site-button header__button" href="<?= Url::toRoute(['site/login']) ?>">
-      Попробовать бесплатно
-    </a>
+      <?php if(Yii::$app->user->isGuest): ?>
+        <a class="site-button header__button" href="<?= Url::toRoute(['site/signup']) ?>">
+          Попробовать бесплатно
+        </a>
+      <?php else: ?>
+        <a class="site-button header__button" href="<?= Url::toRoute(['lk/index']) ?>">
+          Личный кабинет
+        </a>
+      <?php endif; ?>
+
     <button class="header__burger-btn">
       <span></span>
       <span></span>

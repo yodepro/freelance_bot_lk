@@ -82,6 +82,11 @@ class SiteController extends Controller
         return $this->render('public');
     }
 
+    public function actionBase()
+    {
+        return $this->render('base');
+    }
+
     /**
      * Logs in a user.
      *

@@ -27,7 +27,7 @@ $theme = $this->theme;
                     ['class' => 'link-hover footer__item scrollFrom-suitable--footer'])
         ?>
         <?= Html::a('Поддерживаемые биржи',
-                    ['site/index','#' => 'suitable'],
+                    ['site/base'],
                     ['class' => 'link-hover footer__item scrollFrom-suitable--footer'])
         ?>
 <!--        Html::a('Преимущества',

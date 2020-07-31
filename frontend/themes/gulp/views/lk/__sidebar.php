@@ -27,7 +27,7 @@ $start = \common\models\PaymentRate::find()->active()->one();
             </p>
 
             <?php
-            if ($profile->active_to < time()): ?>
+            if (!$profile->isActive()): ?>
                 <div class="profile-sidebar__subs">
                     <div
                         class="profile-sidebar__subs-stat profile-sidebar__subs-stat--error"
@@ -48,7 +48,7 @@ $start = \common\models\PaymentRate::find()->active()->one();
                     </div>
                 </div>
             <?php
-            elseif ($profile->active_to > time()): ?>
+            else: ?>
                 <div class="profile-sidebar__subs">
                     <div class="profile-sidebar__subs-stat">
                         <img src="<?= $theme->getUrl('img/static/check-icon.svg') ?>" alt="ok"/>
@@ -58,15 +58,17 @@ $start = \common\models\PaymentRate::find()->active()->one();
                             START активен
                         </p>
                         <a
-                            href="#"
                             class="link-hover link-hover--blue profile-sidebar__subs-link"
+                            href="<?= Url::toRoute(['payment/create', 'rate' => $start->id]) ?>"
                         >
-                            Продлить подписку
+                          Продлить подписку
                         </a>
                     </div>
                 </div>
+
             <?php
             endif; ?>
+
         </div>
         <?= $this->render('_left_menu')?>
     </div>
