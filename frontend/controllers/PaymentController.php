@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace frontend\controllers;
 
+use common\components\payment\Unitpay;
 use common\models\PaymentOrder;
 use common\models\PaymentRate;
 use Yii;
@@ -61,6 +62,9 @@ class PaymentController extends Controller
             return $this->goBack();
         }
 
+        /**
+         * @var $unitPay Unitpay
+         */
         $unitPay = Yii::$app->unitpay;
         return $this->redirect($unitPay->getRedirectLink($order));
     }

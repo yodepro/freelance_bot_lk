@@ -55,7 +55,7 @@ $start = \common\models\PaymentRate::find()->active()->one();
                     </div>
                     <div class="profile-sidebar__subs-content">
                         <p class="profile-sidebar__subs-title">
-                            START активен
+                            START активен до <?= Yii::$app->formatter->asDate($profile->active_to, 'php:d M') ?>
                         </p>
                         <a
                             class="link-hover link-hover--blue profile-sidebar__subs-link"
