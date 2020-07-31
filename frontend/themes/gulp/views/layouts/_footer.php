@@ -1,5 +1,7 @@
 <?php
+use yii\helpers\Html;
 $theme = $this->theme;
+
 ?>
 
 <footer class="footer">
@@ -14,27 +16,33 @@ $theme = $this->theme;
       <p class="footer__title">
         Разделы сайта
       </p>
-      <a
-          class="link-hover footer__item scrollFrom-useful--footer"
-          href="#useful"
-      >
-        Что такое фриланс бот?
-      </a>
-      <a
-          class="link-hover footer__item scrollFrom-suitable--footer"
-          href="#suitable"
-      >
-        Для кого он подойдет?
-      </a>
-      <a class="link-hover footer__item" href="#">
-        Поддерживаемые биржи
-      </a>
-      <a class="link-hover footer__item" href="#">
-        Преимущества
-      </a>
-      <a class="link-hover footer__item scrollFrom-tarif--footer" href="#tarif">
-        Тарифы
-      </a>
+
+
+        <?= Html::a('Что такое фриланс бот?',
+                    ['site/index','#' => 'useful'],
+                    ['class' => 'link-hover footer__item scrollFrom-useful--footer'])
+        ?>
+        <?= Html::a('Для кого он подойдет?',
+                    ['site/index','#' => 'suitable'],
+                    ['class' => 'link-hover footer__item scrollFrom-suitable--footer'])
+        ?>
+        <?= Html::a('Поддерживаемые биржи',
+                    ['site/index','#' => 'suitable'],
+                    ['class' => 'link-hover footer__item scrollFrom-suitable--footer'])
+        ?>
+<!--        Html::a('Преимущества',
+                    ['site/index','#' => 'suitable'],
+                    ['class' => 'link-hover footer__item scrollFrom-suitable--footer'])
+        -->
+        <?= Html::a('Тарифы',
+                    ['site/index','#' => 'tarif'],
+                    ['class' => 'footer__item scrollFrom-tarif--footer'])
+        ?>
+        <?= Html::a('Публичная оферта',
+                    ['site/public'],
+                    ['class' => 'footer__item'])
+        ?>
+
     </nav>
     <p class="footer__and">
       &
@@ -43,11 +51,11 @@ $theme = $this->theme;
       <p class="footer__title">
         Свяжитесь с нами
       </p>
-      <a class="link-hover footer__item" href="#">
-        info@ikon.love
+      <a class="link-hover footer__item" href="email:info@yode.pro">
+        info@yode.pro
       </a>
-      <a class="link-hover footer__item" href="#">
-        (+41) 76 586 12 56
+      <a class="link-hover footer__item" href="tel:84991130149">
+        +7 (499) 113 01 49
       </a>
     </div>
   </div>

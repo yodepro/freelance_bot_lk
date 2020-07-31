@@ -11,23 +11,11 @@ use yii\bootstrap\ActiveForm;
 /* @var $model \frontend\models\PasswordForm */
 
 $theme = $this->theme;
-
+$this->title = 'Личный кабинет';
 ?>
 
 
-<section class="container">
-    <div class="bread-crumbs">
-        <a class="bread-crumbs__link" href="#">
-            Главная<span></span>
-        </a>
-        <p class="bread-crumbs__this-page">
-            Личный кабинет
-        </p>
-    </div>
-    <h1 class="section-title section-title--profile">
-        Личный кабинет
-    </h1>
-</section>
+<?= $this->render('_bread_crums') ?>
 <section class="container profile-page profile-page--tarif">
     <?= $this->render('__sidebar',['profile' => $profile])?>
     <div class="profile-page__main">

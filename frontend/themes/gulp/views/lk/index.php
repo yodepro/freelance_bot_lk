@@ -10,26 +10,12 @@ use yii\helpers\Url;
 /* @var $profile User */
 
 $theme = $this->theme;
+$this->title = 'Личный кабинет';
 ?>
 
-
-<section class="container">
-  <div class="bread-crumbs">
-    <a class="bread-crumbs__link" href="#">
-      Главная<span></span>
-    </a>
-    <p class="bread-crumbs__this-page">
-      Личный кабинет
-    </p>
-  </div>
-  <h1 class="section-title section-title--profile">
-    Личный кабинет
-  </h1>
-</section>
+<?= $this->render('_bread_crums') ?>
 <section class="container profile-page profile-page--bot">
   <?= $this->render('__sidebar',['profile' => $profile]) ?>
-
-
   <div class="profile-page__main">
     <div class="profile-card profile-row-title">
       <h2 class="profile-title">

@@ -1,46 +1,56 @@
 <?php
+
+use yii\helpers\Html;
+use yii\helpers\Url;
+
 $theme = $this->theme;
 ?>
 
 <header class="header">
   <div class="container header__container">
-    <a class="header__logo" href="./">
-      <img
-          alt="FreelanceBot"
-          height="48px"
-          src="<?= $theme->getUrl('img/static/logo.svg') ?>"
-          width="223px"
-      />
-    </a>
+      <?=
+      Html::a(
+          Html::img(
+              $theme->getUrl('img/static/logo.svg'),
+              [
+                  'alt' => 'FreelanceBot',
+                  'height' => '48px', 'width' => '223px'
+              ]
+          ),
+          ['site/index'],
+          ['class' => 'header__logo']
+      )
+      ?>
     <div class="header__burger-menu">
       <nav class="header__nav">
-        <a class="link-hover header__nav-item scrollFrom-useful" href="/#useful">
-          Что это?
-        </a>
-        <a
-            class="link-hover header__nav-item scrollFrom-suitable"
-            href="/#suitable"
-        >
-          Для кого?
-        </a>
-        <a class="link-hover header__nav-item scrollFrom-how" href="/#how">
-          Биржи
-        </a>
-        <a class="link-hover header__nav-item" href="/#">
-          Преимущества
-        </a>
-        <a class="link-hover header__nav-item scrollFrom-tarif" href="/#tarif">
-          Тарифы
-        </a>
-        <a
-            class="site-button header__button site-button header__button--mobile"
-            href="<?= \yii\helpers\Url::toRoute(['site/login'])?>"
-        >
-          Войти
-        </a>
+          <?= Html::a('Что это?',
+                      ['site/index','#' => 'useful'],
+                      ['class' => 'link-hover header__nav-item scrollFrom-useful'])
+          ?>
+          <?= Html::a('Для кого?',
+                      ['site/index','#' => 'suitable'],
+                      ['class' => 'link-hover header__nav-item scrollFrom-suitable'])
+          ?>
+          <?= Html::a('Биржи',
+                      ['site/index','#' => 'suitable'],
+                      ['class' => 'link-hover header__nav-item scrollFrom-how'])
+          ?>
+          <!-- Html::a('Преимущества',
+                      ['site/index','#' => 'suitable'],
+                      ['class' => 'link-hover header__nav-item scrollFrom-how'])-->
+
+          <?= Html::a('Тарифы',
+                      ['site/index','#' => 'tarif'],
+                      ['class' => 'link-hover header__nav-item scrollFrom-tarif'])
+          ?>
+
+          <?= Html::a('Войти',
+                      ['site/login'],
+                      ['class' => 'site-button header__button site-button header__button--mobile'])
+          ?>
       </nav>
     </div>
-    <a class="site-button header__button" href="<?= \yii\helpers\Url::toRoute(['site/login'])?>">
+    <a class="site-button header__button" href="<?= Url::toRoute(['site/login']) ?>">
       Попробовать бесплатно
     </a>
     <button class="header__burger-btn">
