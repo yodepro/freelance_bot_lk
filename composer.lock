@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "29651c4c44aead22d01601951aa0c027",
+    "content-hash": "7aee7c5b27522dfd393cece84be5964b",
     "packages": [
         {
             "name": "bower-asset/bootstrap",
@@ -70,23 +70,39 @@
             ]
         },
         {
-            "name": "bower-asset/noty",
-            "version": "v3.1.4",
+            "name": "bower-asset/jquery-growl",
+            "version": "v1.3.5",
             "source": {
                 "type": "git",
-                "url": "git@github.com:needim/noty.git",
-                "reference": "77268c46b6db6a1eb7a920ed7c859fbc8de17993"
+                "url": "git@github.com:ksylvest/jquery-growl.git",
+                "reference": "b26d47cacb316ec291a6d12a77b18aef26a42fcd"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/needim/noty/zipball/77268c46b6db6a1eb7a920ed7c859fbc8de17993",
-                "reference": "77268c46b6db6a1eb7a920ed7c859fbc8de17993",
+                "url": "https://api.github.com/repos/ksylvest/jquery-growl/zipball/b26d47cacb316ec291a6d12a77b18aef26a42fcd",
+                "reference": "b26d47cacb316ec291a6d12a77b18aef26a42fcd",
                 "shasum": null
             },
-            "type": "bower-asset",
-            "license": [
-                "MIT"
-            ]
+            "require": {
+                "bower-asset/jquery": "dev-default|*"
+            },
+            "type": "bower-asset"
+        },
+        {
+            "name": "bower-asset/noty",
+            "version": "v2.4.1",
+            "source": {
+                "type": "git",
+                "url": "git@github.com:needim/noty.git",
+                "reference": "ebb543ef0a3c039cdb7cdae887197ffa43433d52"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/needim/noty/zipball/ebb543ef0a3c039cdb7cdae887197ffa43433d52",
+                "reference": "ebb543ef0a3c039cdb7cdae887197ffa43433d52",
+                "shasum": null
+            },
+            "type": "bower-asset"
         },
         {
             "name": "bower-asset/punycode",

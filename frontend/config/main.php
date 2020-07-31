@@ -63,12 +63,18 @@ return [
             'showScriptName' => false,
             'rules' => [
                 '' => 'site/index',
+                'lk' => 'lk/index',
                 '<action>' => 'site/<action>',
             ],
         ],
         'formatter' => [
             'locale' => 'ru'
         ]
+    ],
+    'modules' => [
+        'noty' => [
+            'class' => lo\modules\noty\Module::class,
+        ],
     ],
     'params' => $params,
 ];

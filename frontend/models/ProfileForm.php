@@ -17,6 +17,7 @@ class ProfileForm extends Model
     public function __construct(User $user, $config = [])
     {
         parent::__construct($config);
+        $this->email = $user->email;
         $this->user = $user;
     }
 

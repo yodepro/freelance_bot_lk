@@ -14,22 +14,22 @@ $theme = $this->theme;
     </a>
     <div class="header__burger-menu">
       <nav class="header__nav">
-        <a class="link-hover header__nav-item scrollFrom-useful" href="#useful">
+        <a class="link-hover header__nav-item scrollFrom-useful" href="/#useful">
           Что это?
         </a>
         <a
             class="link-hover header__nav-item scrollFrom-suitable"
-            href="#suitable"
+            href="/#suitable"
         >
           Для кого?
         </a>
-        <a class="link-hover header__nav-item" href="#">
+        <a class="link-hover header__nav-item scrollFrom-how" href="/#how">
           Биржи
         </a>
-        <a class="link-hover header__nav-item" href="#">
+        <a class="link-hover header__nav-item" href="/#">
           Преимущества
         </a>
-        <a class="link-hover header__nav-item scrollFrom-tarif" href="#tarif">
+        <a class="link-hover header__nav-item scrollFrom-tarif" href="/#tarif">
           Тарифы
         </a>
         <a

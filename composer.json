@@ -20,7 +20,8 @@
         "yiisoft/yii2-swiftmailer": "~2.0.0 || ~2.1.0",
         "unitpay/php-sdk": "^2.0",
         "loveorigami/yii2-notification-wrapper": "*",
-        "bower-asset/noty": "*"
+        "bower-asset/noty": "^2.3",
+        "bower-asset/jquery-growl": "^1.3"
     },
     "require-dev": {
         "yiisoft/yii2-debug": "~2.1.0",

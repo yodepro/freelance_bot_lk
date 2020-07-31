@@ -113,7 +113,26 @@ $this->beginPage() ?>
 <body>
 <?php
 $this->beginBody() ?>
+<?=
 
+\lo\modules\noty\Wrapper::widget([
+    'layerClass' => lo\modules\noty\layers\Noty::class,
+    //'layerClass' => lo\modules\noty\layers\Growl::class,
+    'options'=> [
+       'layout' => 'topRight',
+        'theme' => 'metroui',
+        'progressBar' => true,
+        'animation' => [
+            'open' => 'animated fadeInRight',
+            'close' => 'animated fadeOutRight'
+        ]
+    ],
+    'layerOptions'=>
+    [
+       'showTitle'=>false,
+        'registerAnimateCss' => true,
+    ]]);
+?>
 
 <div class="body-container">
   <div class="burger-overflow"></div>

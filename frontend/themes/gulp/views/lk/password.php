@@ -2,8 +2,13 @@
 
 declare(strict_types=1);
 use common\models\User;
+use yii\helpers\Html;
+use yii\bootstrap\ActiveForm;
 
 /* @var $profile User */
+/* @var $this yii\web\View */
+/* @var $form yii\bootstrap\ActiveForm */
+/* @var $model \frontend\models\PasswordForm */
 
 $theme = $this->theme;
 
@@ -24,38 +29,26 @@ $theme = $this->theme;
     </h1>
 </section>
 <section class="container profile-page profile-page--tarif">
-
-
     <?= $this->render('__sidebar',['profile' => $profile])?>
     <div class="profile-page__main">
         <div class="profile-card">
-            <form class="site-form">
-                <div class="site-form__field">
-                    <label class="label site-form__label" for="input-1"
-                    >Поле 1</label
-                    >
-                    <input
-                        class="input site-form__input"
-                        id="input-1"
-                        name="input-1"
-                        type="text"
-                    />
-                </div>
-                <div class="site-form__field">
-                    <label class="label site-form__label" for="input-2"
-                    >Поле 2</label
-                    >
-                    <input
-                        class="input site-form__input"
-                        id="input-2"
-                        name="input-2"
-                        type="text"
-                    />
-                </div>
-                <button class="site-button site-form__button">
-                    Сабмит формы
-                </button>
-            </form>
+            <?php $form = ActiveForm::begin(['id' => 'form-password-update','options' => ['class' => 'site-form']]); ?>
+
+            <label for="password" class="label login__label">Пароль</label>
+              <?= $form->field($model, 'password')
+                  ->passwordInput(['class' => 'input login__input'])
+                  ->label(false)
+              ?>
+            <label for="repeat-password" class="label login__label">Повторите пароль</label>
+              <?= $form->field($model, 'password_repeat')
+                  ->passwordInput(['class' => 'input login__input'])
+                  ->label(false)
+              ?>
+            <?= Html::submitButton('Сохранить',
+                                   ['disabled','class' => 'site-button login__button', 'name' => 'login-button'])
+            ?>
+
+            <?php ActiveForm::end(); ?>
         </div>
     </div>
 </section>

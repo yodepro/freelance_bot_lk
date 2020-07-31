@@ -83,7 +83,7 @@ $this->title = Yii::$app->name;
     </div>
   </section>
 
-  <section class="how">
+  <section class="how" id="how">
     <div class="container">
       <h2 class="section-title section-title--white how__title">
         Как это работает?
