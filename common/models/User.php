@@ -261,12 +261,10 @@ class User extends ActiveRecord implements IdentityInterface
     {
         if($this->tg_id){
             return Html::a(
-                'Отключить',
-                ['lk/disconnect','b' => 'tg'],
+                $this->tg_id,
+                '#',
                 [
                     'class' => 'link-hover link-hover--blue profile-plug-bot__item-desc',
-                    'data-method' => 'post',
-                    'target' => '_blank'
                 ]);
         }
 

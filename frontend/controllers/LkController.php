@@ -68,11 +68,9 @@ class LkController extends Controller
         return $this->render('update',['profile' => $profile, 'model' => $form]);
     }
 
-    public function actionDisconnect($b = 'tg')
+    /*public function actionDisconnect($b = 'tg')
     {
-        /**
-         * @var $profile User
-         */
+
         $profile = Yii::$app->user->identity;
 
         if(Yii::$app->request->isPost){
@@ -85,7 +83,7 @@ class LkController extends Controller
         }
 
         return $this->redirect(['lk/index']);
-    }
+    }*/
 
     public function actionPassword()
     {
