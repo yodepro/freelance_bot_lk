@@ -270,7 +270,7 @@ class User extends ActiveRecord implements IdentityInterface
 
         return Html::a(
             'Подключить',
-            'https://t.me/YodeFreelanceBot?id='.$this->user_uuid,
+            'https://t.me/YodeFreelanceBot?start='.$this->user_uuid,
             [
                 'class' => 'link-hover link-hover--blue profile-plug-bot__item-desc',
                 'target' => '_blank'
