@@ -43,11 +43,18 @@ $theme = $this->theme;
                       ['site/index','#' => 'tarif'],
                       ['class' => 'link-hover header__nav-item scrollFrom-tarif'])
           ?>
+          <?php if(Yii::$app->user->isGuest):?>
+              <?= Html::a('Войти',
+                          ['site/login'],
+                          ['class' => 'site-button header__button site-button header__button--mobile'])
+              ?>
+          <?php else:?>
+              <?= Html::a('Личный кабинет',
+                          ['lk/index'],
+                          ['class' => 'site-button header__button site-button header__button--mobile'])
+              ?>
+          <?php endif;?>
 
-          <?= Html::a('Войти',
-                      ['site/login'],
-                      ['class' => 'site-button header__button site-button header__button--mobile'])
-          ?>
       </nav>
     </div>
       <?php if(Yii::$app->user->isGuest): ?>
