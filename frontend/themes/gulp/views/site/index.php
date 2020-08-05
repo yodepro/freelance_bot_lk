@@ -6,6 +6,8 @@ use yii\helpers\Url;
 
 $theme = $this->theme;
 $this->title = Yii::$app->name;
+$this->registerMetaTag(['name' => 'yandex-verification','content' => '21f7b40ca4abd9ea']);
+$this->registerMetaTag(['name' => 'description','content' => 'Телеграм-бот с личным кабинетом: все заказы с фриланс бирж в одном месте']);
 ?>
 
 <main class="body-container__main main-page">
