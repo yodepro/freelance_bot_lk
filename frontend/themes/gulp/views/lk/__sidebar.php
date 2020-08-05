@@ -58,7 +58,7 @@ $start = \common\models\PaymentRate::find()->active()->one();
                             START до <?= Yii::$app->formatter->asDate($profile->active_to, 'php:d M H:i') ?>
                         </p>
                         <a
-                            class="link-hover link-hover--blue profile-sidebar__subs-link"
+                            class="link-hover link-hover--blue profile-sidebar__subs-link to-payment-btn"
                             href="<?= Url::toRoute(['payment/create', 'rate' => $start->id]) ?>"
                         >
                           Продлить подписку
