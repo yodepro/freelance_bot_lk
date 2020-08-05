@@ -262,9 +262,10 @@ class User extends ActiveRecord implements IdentityInterface
         if($this->tg_id){
             return Html::a(
                 $this->tg_id,
-                '#',
+                'https://t.me/YodeFreelanceBot',
                 [
                     'class' => 'link-hover link-hover--blue profile-plug-bot__item-desc',
+                    'target' => '_blank'
                 ]);
         }
 

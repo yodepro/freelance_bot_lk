@@ -143,7 +143,9 @@ $this->beginBody() ?>
 </div>
 
 <?php
-$this->endBody() ?>
+echo $this->render('_ya_metrika');
+$this->endBody()
+?>
 </body>
 </html>
 <?php
