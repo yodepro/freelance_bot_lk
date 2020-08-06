@@ -32,9 +32,6 @@ return [
                 'class' => Theme::class,
                 'basePath' => '@app/build',
                 'baseUrl' => '@web/build',
-                /*                'pathMap' => [
-                                    '@app/views' => '@app/themes/gulp',
-                                ],*/
             ],
         ],
         'request' => [
