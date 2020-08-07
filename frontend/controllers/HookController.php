@@ -120,7 +120,7 @@ class HookController extends Controller
         $component->putCheck(
             $unitpayId,
             $order->user->email,
-            $order->total
+            (float)$order->total
         );
     }
 
