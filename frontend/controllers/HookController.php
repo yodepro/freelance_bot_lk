@@ -2,6 +2,8 @@
 
 namespace frontend\controllers;
 
+use common\components\kassa\Kassa;
+use common\components\kassa\KassaClient;
 use common\components\payment\Unitpay;
 use common\models\PaymentOrder as Order;
 use Yii;
@@ -83,6 +85,7 @@ class HookController extends Controller
                 break;
             case ('pay'):
                 $this->paymentSuccess($order);
+                $this->putCheck($params['params']['unitpayId'], $order);
                 return $this->successResponse('Запрос успешно обработан');
                 break;
             default:
@@ -107,7 +110,18 @@ class HookController extends Controller
         $order->user->setPayment($order);
         $order->user->save();
         $order->save();
+    }
 
+    protected function putCheck($unitpayId, Order $order){
+        // отправка данных в кассовый аппарат на фискализацию
+        // через компонент Комтет кассового аппарата Эвотор
+        /** @var KassaClient $component */
+        $component = Yii::$container->get(Kassa::class);
+        $component->putCheck(
+            $unitpayId,
+            $order->user->email,
+            $order->total
+        );
     }
 
     protected function paymentFail(Order $order, array $params): void

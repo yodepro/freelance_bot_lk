@@ -14,7 +14,7 @@ return [
     'name' => 'Freelance Bot',
     'language' => 'ru',
     'basePath' => dirname(__DIR__),
-    'bootstrap' => ['log'],
+    'bootstrap' => ['log','frontend\bootstrap\SetUp'],
     'controllerNamespace' => 'frontend\controllers',
     'components' => [
         'assetManager' => [
