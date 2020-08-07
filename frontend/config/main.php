@@ -53,6 +53,13 @@ return [
                     'class' => 'yii\log\FileTarget',
                     'levels' => ['error', 'warning'],
                 ],
+                'file' => [
+                    'class' => 'yii\log\FileTarget',
+                    'levels' => ['error', 'warning','info'],
+                    'categories' => YII_DEBUG ? ['*'] : ['kassa/*'],
+                    'logFile' => '@app/runtime/logs/kassa.log',
+                    'logVars' => [],
+                ],
             ],
         ],
         'errorHandler' => [
