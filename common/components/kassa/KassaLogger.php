@@ -18,7 +18,7 @@ class KassaLogger implements Kassa
     }
 
 
-    public function putCheck($checkID, $clientEmail, $payerSum, $direction)
+    public function putCheck($checkID, $clientEmail, $payerSum, $direction = 'Услуги')
     {
         try {
             $result = $this->next->putCheck($checkID, $clientEmail, $payerSum, $direction);
