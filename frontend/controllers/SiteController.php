@@ -278,4 +278,28 @@ class SiteController extends Controller
             'model' => $model
         ]);
     }
+
+
+    public function actionSuccess()
+    {
+        Yii::$app->session->setFlash(
+            'success',
+            'Платеж успешно принят.<br>
+                   Возможно потребуется немного времени для обновления подписки. <br>
+                   Спасибо за использование нашего сервиса!<br>'
+        );
+
+        return $this->redirect(['lk/index']);
+    }
+
+    public function actionFail()
+    {
+        Yii::$app->session->setFlash(
+            'error',
+            'Платеж завершился с ошибкой.<br>
+                   Пожалуйста попробуйте еще раз.'
+        );
+
+        return $this->redirect(['lk/index']);
+    }
 }
