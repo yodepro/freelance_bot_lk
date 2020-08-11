@@ -259,10 +259,11 @@ class User extends ActiveRecord implements IdentityInterface
 
     public function getTgLink()
     {
+        $tg_bot_name = Yii::$app->params['tg_bot_name'];
         if($this->tg_id){
             return Html::a(
                 $this->tg_id,
-                'https://t.me/YodeFreelanceBot',
+                "https://t.me/$tg_bot_name",
                 [
                     'class' => 'link-hover link-hover--blue profile-plug-bot__item-desc',
                     'target' => '_blank'
@@ -271,7 +272,7 @@ class User extends ActiveRecord implements IdentityInterface
 
         return Html::a(
             'Подключить',
-            'https://t.me/YodeFreelanceBot?start='.$this->user_uuid,
+            "https://t.me/$tg_bot_name?start=$this->user_uuid",
             [
                 'class' => 'link-hover link-hover--blue profile-plug-bot__item-desc',
                 'target' => '_blank'

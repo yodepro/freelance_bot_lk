@@ -10,5 +10,6 @@ return [
         'secretKey' => '',
         'publicId' => '',
         'domain' => 'unitpay.ru'
-    ]
+    ],
+    'tg_bot_name' => 'fl_bot_ru_bot'
 ];
