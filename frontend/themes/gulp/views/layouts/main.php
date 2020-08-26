@@ -20,7 +20,7 @@ $this->beginPage() ?>
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="theme-color" content="#fff"/>
   <meta name="verification" content="ef46cc3a76521696159b7adb10f359" />
-
+  <meta name="google-site-verification" content="rVpvz2YYo-93AlE0k85RhVycEJ8ieAEoim7vXZqrMaY" />
   <meta
       name="apple-mobile-web-app-status-bar-style"
       content="black-translucent"
